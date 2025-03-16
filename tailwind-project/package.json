@@ -1,0 +1,19 @@
+{
+  "name": "tailwind-project",
+  "version": "1.0.0",
+  "description": "A modern web project using Tailwind CSS for styling.",
+  "main": "src/index.html",
+  "scripts": {
+    "build": "tailwindcss build src/styles/style.css -o src/styles/output.css",
+    "watch": "tailwindcss build src/styles/style.css -o src/styles/output.css --watch"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5"
+  }
+}
