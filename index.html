@@ -6,17 +6,40 @@
     <meta name="description" content="デジタルデトックスでスマホから離れ、より有意義な時間を過ごすアプリ。">
     <title>デジタルデトックスアプリ</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="hero">
         <div class="container">
             <h1>デジタルデトックスアプリ</h1>
-            <p>スマホを手放し、本当に大切な時間を取り戻しませんか？</p>
+            <p class="hero-subtitle">スマホを手放し、本当に大切な時間を取り戻しませんか？</p>
             <a href="#features" class="btn-primary">アプリの特徴を見る</a>
         </div>
     </header>
     
     <main>
+        <section id="app-preview" class="app-preview-section">
+            <div class="container">
+                <h2>あなたのデジタルライフをコントロール</h2>
+                <div class="screenshots-container">
+                    <div class="screenshot">
+                        <img src="images/screenshot-1.png" alt="デトックス時間設定画面" class="app-screenshot">
+                        <p>必要な時間だけスマホをブロック</p>
+                    </div>
+                    <div class="screenshot">
+                        <img src="images/screenshot-2.png" alt="デトックスデータ分析画面" class="app-screenshot">
+                        <p>成果を可視化してモチベーションアップ</p>
+                    </div>
+                    <div class="screenshot">
+                        <img src="images/screenshot-3.png" alt="デトックス中画面" class="app-screenshot">
+                        <p>シンプルで使いやすいタイマー</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="features" class="features-section">
             <div class="container">
                 <h2>アプリの特徴</h2>
@@ -40,20 +63,42 @@
         <section id="graph" class="graph-section">
             <div class="container">
                 <h2>デジタルデトックスの成果</h2>
-                <img src="graph-placeholder.png" alt="デジタルデトックス成果グラフ" class="graph-img">
-                <p>スマホを使わない時間を日ごとに集計。活動内容を振り返りながら、有意義な時間の積み重ねを楽しめます。</p>
+                <div class="graph-container">
+                    <img src="images/screenshot-2.png" alt="デジタルデトックス成果グラフ" class="graph-img">
+                    <div class="graph-text">
+                        <h3>日々の成長を実感</h3>
+                        <p>スマホを使わない時間を日ごとに集計。活動内容を振り返りながら、有意義な時間の積み重ねを楽しめます。</p>
+                        <ul class="graph-benefits">
+                            <li>前日比で成長を確認</li>
+                            <li>カテゴリ別の時間配分を可視化</li>
+                            <li>週間・月間の傾向を分析</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
         
         <section id="examples" class="examples-section">
             <div class="container">
                 <h2>こんな使い方ができます</h2>
-                <ul>
-                    <li>読書や勉強に集中して成果を上げる</li>
-                    <li>運動や趣味に没頭してリフレッシュ</li>
-                    <li>家族や友人との大切な時間を満喫</li>
-                </ul>
-                <p>あなたの自由な時間を、もっと充実させましょう！</p>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <span class="example-icon">📚</span>
+                        <h3>学習時間の確保</h3>
+                        <p>読書や勉強に集中して成果を上げる</p>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-icon">🏃</span>
+                        <h3>健康的な習慣</h3>
+                        <p>運動や趣味に没頭してリフレッシュ</p>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-icon">👨‍👩‍👧‍👦</span>
+                        <h3>大切な人との時間</h3>
+                        <p>家族や友人との大切な時間を満喫</p>
+                    </div>
+                </div>
+                <p class="examples-footer">あなたの自由な時間を、もっと充実させましょう！</p>
             </div>
         </section>
 
@@ -62,6 +107,10 @@
                 <h2>アプリをダウンロード</h2>
                 <p>スマホを使わない自由な時間を手に入れる準備はできていますか？</p>
                 <a href="https://apps.apple.com" class="btn-primary">App Storeでダウンロード</a>
+                <div class="download-notes">
+                    <a href="privacy-policy.html">プライバシーポリシー</a> | 
+                    <a href="terms-of-service.html">利用規約</a>
+                </div>
             </div>
         </section>
     </main>
