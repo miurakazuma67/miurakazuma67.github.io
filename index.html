@@ -1,106 +1,278 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="デジタルデトックスでスマホから離れ、より有意義な時間を過ごすアプリ。">
-    <title>デジタルデトックスアプリ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>detox - デジタルデトックスアプリ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS アニメーションライブラリ -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #d946ef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0ea5e9, #d946ef);
+        }
+    </style>
 </head>
-<body>
-    <header class="hero">
-        <div class="container">
-            <h1>デジタルデトックスアプリ</h1>
-            <p class="hero-subtitle">スマホを手放し、本当に大切な時間を取り戻しませんか？</p>
-            <a href="#features" class="btn-primary">アプリの特徴を見る</a>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">detox</a>
+            <div class="flex items-center gap-6">
+                <a href="#features" class="hidden md:block hover:text-primary-600 dark:hover:text-primary-400 transition">機能</a>
+                <a href="#examples" class="hidden md:block hover:text-primary-600 dark:hover:text-primary-400 transition">活用例</a>
+                <a href="#download" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition duration-300 shadow-md hover:shadow-lg">ダウンロード</a>
+                <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-28 pb-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                        <span class="gradient-text">デジタル</span>から解放され、<br>
+                        <span class="gradient-text">本当の自由</span>を手に入れる
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8">
+                        スマホを手放し、本当に大切な時間を取り戻しませんか？
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#features" class="gradient-bg text-white px-6 py-3 rounded-lg text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
+                            アプリの特徴を見る
+                        </a>
+                        <a href="#download" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-lg text-center shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300">
+                            今すぐダウンロード
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="relative">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur opacity-30 dark:opacity-40 animate-pulse"></div>
+                        <img src="images/timer.PNG" alt="デトックスアプリプレビュー" class="relative rounded-xl shadow-2xl w-full max-w-sm mx-auto">
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     
     <main>
-        <section id="app-preview" class="app-preview-section">
-            <div class="container">
-                <h2>あなたのデジタルライフをコントロール</h2>
-                <div class="screenshots-container">
-                    <div class="screenshot">
-                        <img src="images/quickBlock.PNG" alt="デトックス時間設定画面" class="app-screenshot">
-                        <p>必要な時間だけスマホをブロック</p>
+        <section id="app-preview" class="py-20 px-4">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">
+                    <span class="gradient-text">あなたのデジタルライフ</span>をコントロール
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 hover:shadow-2xl transition duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/quickBlock.PNG" alt="デトックス時間設定画面" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">必要な時間だけブロック</h3>
+                        <p class="text-gray-600 dark:text-gray-400">シンプルな操作で必要な時間だけスマホをブロック。自分の時間を取り戻します。</p>
                     </div>
-                    <div class="screenshot">
-                        <img src="images/graph.PNG" alt="デトックスデータ分析画面" class="app-screenshot">
-                        <p>成果を可視化してモチベーションアップ</p>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 hover:shadow-2xl transition duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/graph.PNG" alt="デトックスデータ分析画面" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">成果を可視化</h3>
+                        <p class="text-gray-600 dark:text-gray-400">詳細なグラフでデトックス時間を分析。あなたの成長が一目でわかります。</p>
                     </div>
-                    <div class="screenshot">
-                        <img src="images/timer.PNG" alt="デトックス中画面" class="app-screenshot">
-                        <p>シンプルで使いやすいタイマー</p>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 hover:shadow-2xl transition duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                        <img src="images/timer.PNG" alt="デトックス中画面" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">シンプルなタイマー</h3>
+                        <p class="text-gray-600 dark:text-gray-400">直感的に使えるタイマーインターフェース。複雑な操作は一切必要ありません。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="features-section">
-            <div class="container">
-                <h2>アプリの特徴</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <h3>デジタルデトックス機能</h3>
-                        <p>スクリーンタイムAPIを活用して、スマホを一定時間ロック。自分だけの自由な時間を確保します。</p>
+        <section id="features" class="py-20 px-4 bg-gray-100 dark:bg-gray-800">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">
+                    <span class="gradient-text">アプリの特徴</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">デジタルデトックス機能</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">スクリーンタイムAPIを活用して、スマホを一定時間ロック。自分だけの自由な時間を確保します。</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>有意義な時間の可視化</h3>
-                        <p>スマホを使わずに過ごした時間をグラフで確認。どれだけ自分を律したか、一目でわかります。</p>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">有意義な時間の可視化</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">スマホを使わずに過ごした時間をグラフで確認。どれだけ自分を律したか、一目でわかります。</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>タグで振り返り</h3>
-                        <p>過ごした時間を「読書」「運動」「家族と過ごす」などのタグで記録。どんな活動ができたか振り返りに役立てます。</p>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-3">タグで振り返り</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">過ごした時間を「読書」「運動」「家族と過ごす」などのタグで記録。どんな活動ができたか振り返りに役立てます。</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section id="examples" class="examples-section">
-            <div class="container">
-                <h2>こんな使い方ができます</h2>
-                <div class="examples-grid">
-                    <div class="example-item">
-                        <span class="example-icon">📚</span>
-                        <h3>学習時間の確保</h3>
-                        <p>読書や勉強に集中して成果を上げる</p>
+        <section id="examples" class="py-20 px-4">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">
+                    <span class="gradient-text">こんな使い方</span>ができます
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700 transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="text-4xl mb-4 text-center">📚</div>
+                        <h3 class="text-xl font-semibold mb-3 text-center">学習時間の確保</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-center">読書や勉強に集中して成果を上げる。深い学びを得るための時間を作りましょう。</p>
                     </div>
-                    <div class="example-item">
-                        <span class="example-icon">🏃</span>
-                        <h3>健康的な習慣</h3>
-                        <p>運動や趣味に没頭してリフレッシュ</p>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700 transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="text-4xl mb-4 text-center">🏃</div>
+                        <h3 class="text-xl font-semibold mb-3 text-center">健康的な習慣</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-center">運動や趣味に没頭してリフレッシュ。心身の健康を取り戻しましょう。</p>
                     </div>
-                    <div class="example-item">
-                        <span class="example-icon">👨‍👩‍👧‍👦</span>
-                        <h3>大切な人との時間</h3>
-                        <p>家族や友人との大切な時間を満喫</p>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700 transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="text-4xl mb-4 text-center">👨‍👩‍👧‍👦</div>
+                        <h3 class="text-xl font-semibold mb-3 text-center">大切な人との時間</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-center">家族や友人との大切な時間を満喫。スマホなしで心を通わせましょう。</p>
                     </div>
                 </div>
-                <p class="examples-footer">あなたの自由な時間を、もっと充実させましょう！</p>
+                <p class="text-center text-lg mt-12 text-gray-600 dark:text-gray-400" data-aos="fade-up">
+                    あなたの自由な時間を、もっと充実させましょう！
+                </p>
             </div>
         </section>
 
-        <section id="download" class="download-section">
-            <div class="container">
-                <h2>アプリをダウンロード</h2>
-                <p>スマホを使わない自由な時間を手に入れる準備はできていますか？</p>
-                <a href="https://apps.apple.com" class="btn-primary">App Storeでダウンロード</a>
-                <div class="download-notes">
-                    <a href="privacy-policy.html">プライバシーポリシー</a> | 
-                    <a href="terms-of-service.html">利用規約</a>
+        <section id="download" class="py-20 px-4 bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">
+                    アプリをダウンロード
+                </h2>
+                <p class="text-xl mb-10 opacity-90" data-aos="fade-up" data-aos-delay="100">
+                    スマホを使わない自由な時間を手に入れる準備はできていますか？
+                </p>
+                <a href="https://apps.apple.com" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300" data-aos="zoom-in" data-aos-delay="200">
+                    App Storeでダウンロード
+                </a>
+                <div class="mt-10 text-sm opacity-80" data-aos="fade-up" data-aos-delay="300">
+                    <a href="privacy-policy.html" class="underline hover:text-white transition">プライバシーポリシー</a> | 
+                    <a href="terms-of-service.html" class="underline hover:text-white transition">利用規約</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 detox. All Rights Reserved.</p>
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold gradient-text mb-2">detox</div>
+                    <p class="text-sm">デジタルから解放され、本当の自由を手に入れる</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2025 detox. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- ダークモード切替スクリプト -->
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        });
+
+        // 保存された設定を読み込む
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- AOS アニメーション初期化 -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            disable: 'mobile'
+        });
+    </script>
 </body>
 </html>
